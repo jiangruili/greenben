@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 · 页面未找到 | 绿犇低碳</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@600;700;900&display=swap">
+<style>
+  :root{
+    --green-950:#07271a;
+    --green-900:#0a3d24;
+    --green-800:#0b5d2e;
+    --green-700:#0e7a3c;
+    --green-600:#11984a;
+    --green-500:#1fb35c;
+    --green-400:#4cc07b;
+    --green-100:#e4f4ea;
+    --green-50:#f2f9f4;
+    --muted:#5c6d62;
+    --gold:#c8a15a;
+    --white:#ffffff;
+    --font-sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,-apple-system,sans-serif;
+    --font-serif:"Noto Serif SC","Songti SC",serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:var(--font-sans);
+    color:var(--white);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    background:radial-gradient(1200px 700px at 20% -10%,rgba(30,179,92,.28),transparent 60%),
+               radial-gradient(900px 600px at 90% 110%,rgba(200,161,90,.16),transparent 55%),
+               linear-gradient(160deg,#07271a,#0a3d24 55%,#0b5d2e);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 28px}
+  .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+  .brand img{width:44px;height:44px;object-fit:contain}
+  .brand-name{display:flex;flex-direction:column;line-height:1.15}
+  .brand-cn{font-weight:800;font-size:1.2rem;color:#fff}
+  .brand-en{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.78);letter-spacing:.06em}
+  .lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px}
+  .lang-toggle button{border:0;background:transparent;color:rgba(255,255,255,.85);font-family:var(--font-sans);font-size:.85rem;padding:4px 12px;border-radius:999px;cursor:pointer}
+  .lang-toggle button.active{background:var(--green-600);color:#fff;font-weight:600}
+  .main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 20px 60px}
+  .code{font-family:var(--font-serif);font-weight:900;font-size:clamp(120px,26vw,220px);line-height:1;color:var(--green-400);letter-spacing:.02em;
+        text-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .title{margin-top:6px;font-family:var(--font-serif);font-weight:700;font-size:clamp(26px,4vw,40px);color:#fff}
+  .msg{margin-top:14px;max-width:520px;color:rgba(255,255,255,.82);font-size:clamp(15px,2.2vw,18px)}
+  .hint{margin-top:8px;color:rgba(255,255,255,.6);font-size:.92rem}
+  .btn{margin-top:34px;display:inline-flex;align-items:center;gap:8px;background:var(--green-600);color:#fff;font-family:var(--font-sans);font-weight:600;font-size:1.05rem;padding:14px 34px;border-radius:12px;text-decoration:none;
+       box-shadow:0 16px 36px -18px rgba(0,0,0,.6);transition:transform .2s ease,background .2s ease}
+  .btn:hover{background:var(--green-700);transform:translateY(-2px)}
+  .btn .arr{transition:transform .2s ease}
+  .btn:hover .arr{transform:translateX(3px)}
+  .foot{padding:20px 28px;color:rgba(255,255,255,.5);font-size:.82rem;text-align:center}
+  @media(max-width:560px){.brand-en{font-size:.62rem}.top{padding:18px 18px}}
+</style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-transparent.png" alt="绿犇低碳">
+      <span class="brand-name">
+        <span class="brand-cn" data-i18n="brand.cn">绿犇低碳</span>
+        <span class="brand-en" data-i18n="brand.en">Greenben Low-Carbon</span>
+      </span>
+    </a>
+    <div class="lang-toggle">
+      <button type="button" id="langZh" class="active">中文</button>
+      <button type="button" id="langEn">EN</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="code" aria-hidden="true">404</div>
+    <h1 class="title" data-i18n="title">页面未找到</h1>
+    <p class="msg" data-i18n="msg">您访问的页面不存在或已被移动，请返回首页继续了解我们的绿色电力证书、碳信用与绿色低碳咨询服务。</p>
+    <p class="hint" data-i18n="hint">绿犇低碳 · 绿色资产与低碳服务</p>
+    <a class="btn" href="index.html"><span data-i18n="back">返回首页</span><span class="arr">→</span></a>
+  </main>
+
+  <footer class="foot" data-i18n="foot">四川绿犇低碳科技有限公司 · www.greenben.cn</footer>
+
+<script>
+  var dict = {
+    "zh":{
+      "brand.cn":"绿犇低碳","brand.en":"Greenben Low-Carbon",
+      "title":"页面未找到","msg":"您访问的页面不存在或已被移动，请返回首页继续了解我们的绿色电力证书、碳信用与绿色低碳咨询服务。",
+      "hint":"绿犇低碳 · 绿色资产与低碳服务","back":"返回首页","foot":"四川绿犇低碳科技有限公司 · www.greenben.cn"
+    },
+    "en":{
+      "brand.cn":"Greenben Low-Carbon","brand.en":"Sichuan Greenben Low-Carbon Technology Co., Ltd.",
+      "title":"Page Not Found","msg":"The page you are looking for does not exist or has been moved. Please return to the homepage to learn about our Green Electricity Certificates (GEC), carbon credits and green low-carbon consulting services.",
+      "hint":"Greenben Low-Carbon · Green assets & low-carbon services","back":"Back to Home","foot":"Sichuan Greenben Low-Carbon Technology Co., Ltd. · www.greenben.cn"
+    }
+  };
+  function apply(lang){
+    var d = dict[lang];
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if(d[k]) el.textContent = d[k];
+    });
+    document.getElementById("langZh").classList.toggle("active", lang==="zh");
+    document.getElementById("langEn").classList.toggle("active", lang==="en");
+    document.documentElement.lang = lang==="zh" ? "zh-CN" : "en";
+  }
+  document.getElementById("langZh").addEventListener("click",function(){apply("zh");});
+  document.getElementById("langEn").addEventListener("click",function(){apply("en");});
+</script>
+</body>
+</html>
