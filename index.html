@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四川绿犇低碳科技有限公司 | GreenBen Low-Carbon</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@600;700;900&display=swap">
+<style>
+/* ===== 设计变量 ===== */
+:root{
+  --green-950:#07271a;
+  --green-900:#0a3d24;
+  --green-800:#0b5d2e;
+  --green-700:#0e7a3c;
+  --green-600:#11984a;
+  --green-500:#1fb35c;
+  --green-400:#4cc07b;
+  --green-200:#a9e2c0;
+  --green-100:#e4f4ea;
+  --green-50:#f2f9f4;
+  --ink:#16241c;
+  --ink-2:#2c3a32;
+  --muted:#5c6d62;
+  --line:#dce8e0;
+  --white:#ffffff;
+  --gold:#c8a15a;
+  --radius:14px;
+  --shadow-soft:0 18px 40px -26px rgba(10,61,36,.35);
+  --font-sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,-apple-system,sans-serif;
+  --font-serif:"Noto Serif SC","Songti SC",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  font-size:16px;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+section[id],.hero,[id]{scroll-margin-top:74px}
+
+/* ===== 布局 ===== */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section--tint{background:var(--green-50)}
+.section--deep{background:linear-gradient(160deg,var(--green-900),var(--green-700))}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--green-600);font-weight:600;font-size:.86rem;letter-spacing:.12em;
+  margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--green-500);border-radius:2px}
+.section--deep .eyebrow{color:var(--green-200)}
+.section--deep .eyebrow::before{background:var(--green-200)}
+.h2{
+  font-family:var(--font-serif);
+  font-size:clamp(1.7rem,3.2vw,2.5rem);
+  font-weight:700;line-height:1.25;color:var(--green-900);
+  margin-bottom:14px;
+}
+.section--deep .h2{color:#fff}
+.lead{font-size:1.05rem;color:var(--muted);max-width:760px}
+.section--deep .lead{color:rgba(255,255,255,.82)}
+.section-head{max-width:860px;margin-bottom:52px}
+.center{text-align:center}
+.center .section-head{margin-left:auto;margin-right:auto}
+
+/* ===== 按钮 ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:999px;
+  font-weight:600;font-size:.98rem;cursor:pointer;
+  border:1.5px solid transparent;transition:transform .18s,box-shadow .18s,background .18s;
+}
+.btn--primary{background:var(--green-600);color:#fff}
+.btn--primary:hover{background:var(--green-700);transform:translateY(-1px);box-shadow:0 12px 24px -10px rgba(17,152,74,.5)}
+.btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.btn--ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn--outline{background:transparent;color:var(--green-700);border-color:var(--green-400)}
+.btn--outline:hover{background:var(--green-600);color:#fff;border-color:var(--green-600)}
+.btn .arr{transition:transform .18s}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* ===== 导航 ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:74px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand img{width:44px;height:44px;object-fit:contain}
+.brand-name{display:flex;flex-direction:column;line-height:1.15}
+.brand-cn{font-weight:800;font-size:1.22rem;color:var(--green-900);letter-spacing:.02em}
+.brand-en{font-size:.74rem;font-weight:600;color:var(--muted);letter-spacing:.06em}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav-links a{
+  padding:8px 12px;border-radius:10px;font-weight:500;font-size:.9rem;color:var(--ink-2);white-space:nowrap;
+  transition:background .15s,color .15s;
+}
+.nav-links a:hover{color:var(--green-700);background:var(--green-50)}
+.nav-links a.active{color:var(--green-700);background:var(--green-100);font-weight:600}
+.lang-toggle{
+  display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-left:14px;flex-shrink:0;
+}
+.lang-toggle button{
+  background:transparent;border:none;padding:7px 14px;font-size:.85rem;font-weight:600;color:var(--muted);
+  cursor:pointer;font-family:var(--font-sans);transition:background .15s,color .15s;
+}
+.lang-toggle button.on{background:var(--green-600);color:#fff}
+.nav-burger{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:8px}
+.nav-burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.2s}
+html:lang(en) .nav-inner{gap:14px}
+html:lang(en) .nav-links a{padding:7px 10px;font-size:.85rem}
+html:lang(en) .lang-toggle{margin-left:10px}
+html:lang(en) .lang-toggle button{font-size:.78rem;padding:6px 11px}
+html:lang(en) .brand-en{font-size:.68rem;letter-spacing:.04em}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;height:min(780px,100vh);min-height:640px;display:flex;align-items:center;
+  padding:0;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-content{
+  position:relative;z-index:2;max-width:760px;color:#fff;
+  background:linear-gradient(120deg,rgba(5,32,20,.84) 0%,rgba(6,44,28,.72) 60%,rgba(8,58,36,.5) 100%);
+  border:1px solid rgba(255,255,255,.14);border-radius:22px;
+  padding:38px 42px;box-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+  font-size:.86rem;letter-spacing:.1em;margin-bottom:24px;
+}
+.hero h1{
+  font-family:var(--font-serif);
+  font-size:clamp(2.3rem,5.2vw,3.7rem);font-weight:900;line-height:1.2;
+  margin-bottom:22px;
+}
+.hero h1 .accent{color:var(--green-200)}
+.hero p{font-size:1.12rem;color:rgba(255,255,255,.9);max-width:640px;margin-bottom:34px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
+/* ===== 数据条 ===== */
+.stats-strip{border-bottom:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:44px 0}
+.stat{padding:8px 20px;border-left:3px solid var(--green-400)}
+.stat b{font-family:var(--font-serif);font-size:clamp(1.8rem,3.4vw,2.7rem);font-weight:900;color:var(--green-700);display:block;line-height:1.1}
+.stat b sup{font-size:.55em}
+.stat span{color:var(--muted);font-size:.92rem}
+
+/* ===== 服务卡片 ===== */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft)}
+.card-img{height:220px;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-body{padding:28px;display:flex;flex-direction:column;flex:1}
+.card-icon{width:46px;height:46px;border-radius:12px;background:var(--green-100);display:grid;place-items:center;margin-bottom:16px;color:var(--green-700)}
+.card h3{font-family:var(--font-serif);font-size:1.28rem;font-weight:700;color:var(--green-900);margin-bottom:10px}
+.card p{color:var(--muted);font-size:.95rem;flex:1}
+.card .link{margin-top:16px;color:var(--green-700);font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:.95rem}
+.card .link .arr{transition:transform .18s}
+.card .link:hover .arr{transform:translateX(3px)}
+
+/* ===== 服务标签 ===== */
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.tag{background:var(--green-50);border:1px solid var(--green-200);color:var(--green-700);padding:6px 14px;border-radius:999px;font-size:.84rem;font-weight:500}
+
+/* ===== 双栏 ===== */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.split .media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft)}
+.split .media img{width:100%;height:100%;object-fit:cover}
+.split--reverse .media{order:-1}
+
+/* ===== 流程时间轴 ===== */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:40px}
+.flow-step{position:relative;padding:0 22px 0 0}
+.flow-step .num{
+  width:44px;height:44px;border-radius:50%;background:var(--green-600);color:#fff;
+  display:grid;place-items:center;font-weight:700;font-size:1.05rem;margin-bottom:16px;
+}
+.flow-step h4{font-size:1.05rem;font-weight:700;color:var(--green-900);margin-bottom:6px}
+.flow-step p{color:var(--muted);font-size:.9rem}
+.flow-step:not(:last-child)::after{
+  content:"";position:absolute;top:22px;right:-6px;width:16px;height:2px;background:var(--green-300);
+}
+
+/* ===== 案例墙 ===== */
+#cases{background:linear-gradient(160deg,#062b20,#0a3a2c 60%,#062a1f)}
+#cases .eyebrow{color:var(--green-200)}
+#cases .eyebrow::before{background:var(--green-200)}
+#cases .h2{color:#fff}
+#cases .lead{color:rgba(255,255,255,.82)}
+.case-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cw-card{background:#fff;border-radius:var(--radius);padding:26px 16px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:130px;box-shadow:0 18px 40px -26px rgba(0,0,0,.55);transition:transform .25s ease,box-shadow .25s ease}
+.cw-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -22px rgba(0,0,0,.65)}
+.cw-logo{height:70px;width:100%;display:flex;align-items:center;justify-content:center}
+.cw-logo img{max-height:100%;max-width:88%;object-fit:contain}
+.cw-name{font-size:.85rem;font-weight:600;color:var(--ink-2);text-align:center;line-height:1.3}
+.cw-text .cw-name{font-size:1.02rem;font-weight:700;color:var(--green-800);padding-top:22px}
+.cw-ghost{background:rgba(255,255,255,.05);border:1.5px dashed rgba(255,255,255,.35);box-shadow:none}
+.cw-ghost .cw-name{color:rgba(255,255,255,.72);font-weight:500}
+a.cw-card{text-decoration:none;color:inherit}
+.cw-note{margin-top:26px;text-align:center;color:rgba(255,255,255,.78);font-size:.92rem;letter-spacing:.5px}
+
+/* ===== 关于 ===== */
+.feat-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.feat{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white)}
+.feat .fi{width:40px;height:40px;border-radius:10px;background:var(--green-100);display:grid;place-items:center;color:var(--green-700);flex-shrink:0}
+.feat b{display:block;color:var(--green-900);font-size:1rem;margin-bottom:4px}
+.feat span{color:var(--muted);font-size:.9rem}
+
+/* ===== 联系 ===== */
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:30px;color:#fff}
+.contact-card .ci{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.12);display:grid;place-items:center;margin-bottom:16px;color:var(--green-200)}
+.contact-card h4{font-size:1.02rem;font-weight:600;margin-bottom:8px}
+.contact-card p{color:rgba(255,255,255,.78);font-size:.95rem;word-break:break-word}
+.contact-card a:hover{color:var(--green-200);text-decoration:underline}
+.contact-qr img{width:136px;height:136px;object-fit:contain;border-radius:10px;margin:4px 0 12px;background:#fff;padding:6px}
+
+/* ===== 页脚 ===== */
+.footer{background:var(--green-950);color:rgba(255,255,255,.7);padding:56px 0 40px}
+.footer-inner{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.footer-brand{display:flex;gap:14px;align-items:flex-start;max-width:360px}
+.footer-brand img{width:54px;height:54px;object-fit:contain}
+.footer-brand b{color:#fff;font-size:1.05rem;display:block;margin-bottom:8px}
+.footer-brand p{font-size:.9rem}
+.footer-cols{display:flex;gap:64px;flex-wrap:wrap}
+.footer-cols h5{color:#fff;font-size:.96rem;margin-bottom:16px;font-weight:600}
+.footer-cols a{display:block;padding:5px 0;font-size:.92rem;transition:color .15s}
+.footer-cols a:hover{color:var(--green-200)}
+.footer-copy{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:24px;font-size:.84rem;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-copy a:hover{color:var(--green-200)}
+.beian{display:inline-flex;gap:20px;flex-wrap:wrap}
+.beian a{opacity:.85;transition:opacity .15s}
+.beian a:hover{color:var(--green-200);opacity:1}
+
+/* ===== 移动端 ===== */
+@media(max-width:960px){
+  .nav-links{
+    position:fixed;top:74px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;
+    padding:16px 24px 24px;border-bottom:1px solid var(--line);display:none;box-shadow:0 20px 30px -20px rgba(10,61,36,.2);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 8px;font-size:1.05rem;border-radius:10px}
+  .nav-burger{display:block}
+  .lang-toggle{margin-left:0}
+  .grid-3{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:32px}
+  .split--reverse .media{order:0}
+  .stats{grid-template-columns:repeat(2,1fr);gap:24px}
+  .contact-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-list{grid-template-columns:1fr}
+  .section{padding:72px 0}
+}
+@media(max-width:560px){
+  .stats{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .case-wall{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:56px 0;min-height:88vh}
+  .hero-content{padding:26px 22px;max-width:100%}
+  .hero-bg video{height:100%;object-position:center 25%}
+}
+</style>
+</head>
+<body>
+<!-- ===== 导航 ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home" data-nav>
+      <img src="assets/logo-transparent.png" alt="四川绿犇低碳科技有限公司 logo">
+      <span class="brand-name">
+        <span class="brand-cn">绿犇低碳</span>
+        <span class="brand-en">Greenben Low-Carbon</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" data-nav data-i18n="nav.home">首页</a>
+      <a href="#gec" data-nav data-i18n="nav.gec">绿色电力证书</a>
+      <a href="#carbon" data-nav data-i18n="nav.carbon">碳信用</a>
+      <a href="#consult" data-nav data-i18n="nav.consult">咨询服务</a>
+      <a href="#cases" data-nav data-i18n="nav.cases">业绩案例</a>
+      <a href="#about" data-nav data-i18n="nav.about">关于我们</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="langZh" class="on" type="button">中文</button>
+      <button id="langEn" type="button">EN</button>
+    </div>
+    <button class="nav-burger" id="burger" type="button" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== 首页 Hero ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/hero.jpg" aria-hidden="true">
+      <source src="assets/hero-nwm.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container hero-content">
+    <span class="hero-tag" data-i18n="hero.tag">绿色资产 · 全价值链服务商</span>
+    <h1><span data-i18n="hero.title">让每一份绿色资产</span><br><span class="accent" data-i18n="hero.title2">都发挥它的价值</span></h1>
+    <p data-i18n="hero.sub">绿犇低碳聚焦绿色电力证书（GEC / I-REC）与碳资产（CDM、VCS、CCER、CDCER）的开发与交易，以及绿色低碳咨询，为绿色环境属性项目提供全链条解决方案，助力企业与"双碳"目标下的绿色价值变现。</p>
+    <div class="hero-actions">
+      <a class="btn btn--primary" href="#contact" data-nav><span data-i18n="hero.cta1">联系我们</span></a>
+      <a class="btn btn--ghost" href="#gec" data-nav><span data-i18n="hero.cta2">了解我们的服务</span><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 数据条 ===== -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><b>1,000,000<sup>+</sup></b><span data-i18n="stat1">累计交付绿色电力证书（张）</span></div>
+      <div class="stat"><b>100<sup>+</sup></b><span data-i18n="stat2">投产运行的电站项目（个）</span></div>
+      <div class="stat"><b>50<sup>+</sup></b><span data-i18n="stat3">服务央国企 / 上市公司客户</span></div>
+      <div class="stat"><b>300<sup>+</sup></b><span data-i18n="stat4">累计形成服务案例（个）</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 首页：三大业务 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="svc.eyebrow">核心业务</span>
+      <h2 class="h2" data-i18n="svc.title">围绕绿色资产价值变现的三条主线</h2>
+      <p class="lead" data-i18n="svc.lead">我们以"服务客户 + 自主运营"双实践模式，覆盖从资产开发、交易撮合到价值管理的全生命周期。</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-img"><img src="assets/gec.jpg" alt="绿色电力证书"></div>
+        <div class="card-body">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.6 6.9L22 11l-7.4 2.1L12 20l-2.6-6.9L2 11l7.4-2.1z"/></svg>
+          </div>
+          <h3 data-i18n="svc.c1.t">绿色电力证书开发与交易</h3>
+          <p data-i18n="svc.c1.d">覆盖中国绿证（GEC）与国际绿证（I-REC），既可为用电企业代客户采购，也可帮助电站业主完成开发与管理，全程可追溯、权属清晰。</p>
+          <a class="link" href="#gec" data-nav><span data-i18n="svc.more">了解更多</span><span class="arr">→</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="assets/mangrove-3.jpg" alt="碳信用"></div>
+        <div class="card-body">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20v-6M9.5 20V9M14 20V6M18.5 20v-4"/></svg>
+          </div>
+          <h3 data-i18n="svc.c2.t">碳信用开发与交易</h3>
+          <p data-i18n="svc.c2.d">覆盖联合国CDM、核证碳标准（VCS）、国内CCER与天府碳惠（CDCER）等全品类机制，提供"项目识别—开发—审定—签发—交易"一体化服务。</p>
+          <a class="link" href="#carbon" data-nav><span data-i18n="svc.more">了解更多</span><span class="arr">→</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="assets/consulting.jpg" alt="绿色低碳咨询服务"></div>
+        <div class="card-body">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg>
+          </div>
+          <h3 data-i18n="svc.c3.t">绿色低碳咨询服务</h3>
+          <p data-i18n="svc.c3.d">提供碳盘查、企业/产品/活动碳中和、双碳规划、ESG报告与合规咨询，服务国内领先绿色低碳企业、上市公司与央国企子公司。</p>
+          <a class="link" href="#consult" data-nav><span data-i18n="svc.more">了解更多</span><span class="arr">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 绿色电力证书 ===== -->
+<section class="section section--tint" id="gec">
+  <div class="container">
+    <div class="split">
+      <div class="media"><img src="assets/gec.jpg" alt="绿色电力证书"></div>
+      <div>
+        <span class="eyebrow" data-i18n="gec.eyebrow">绿色电力证书</span>
+        <h2 class="h2" data-i18n="gec.title">中国绿证（GEC）与国际绿证（I-REC）的开发和交易</h2>
+        <p class="lead" data-i18n="gec.lead">我们面向光伏、风电等可再生能源项目，提供中国绿色电力证书（GEC）与国际可再生能源证书（I-REC）的全流程服务——从项目合规梳理、发电数据核验、申报对接，到匹配国内外采购方完成交易，帮助项目方快速兑现绿证的环境价值与经济价值。</p>
+        <div class="tags" style="margin-top:24px">
+          <span class="tag" data-i18n="gec.tag1">代客户采购 · 满足绿电消纳</span>
+          <span class="tag" data-i18n="gec.tag2">帮助开发管理 · 服务电站业主</span>
+          <span class="tag" data-i18n="gec.tag3">绿证交易平台会员 · 直供交易</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="gec.flow.eyebrow">服务流程</span>
+      <h2 class="h2" data-i18n="gec.flow.title">从项目到交易，全流程闭环</h2>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><div class="num">1</div><h4 data-i18n="gec.f1.t">项目建档立卡</h4><p data-i18n="gec.f1.d">完成可再生能源项目建档与数据接入，权属清晰、来源正规。</p></div>
+      <div class="flow-step"><div class="num">2</div><h4 data-i18n="gec.f2.t">发电数据核验</h4><p data-i18n="gec.f2.d">核验发电量数据与结算单，确保绿证可追溯、可核验。</p></div>
+      <div class="flow-step"><div class="num">3</div><h4 data-i18n="gec.f3.t">绿证核发</h4><p data-i18n="gec.f3.d">通过国家绿证核发交易系统完成绿证核发与登记。</p></div>
+      <div class="flow-step"><div class="num">4</div><h4 data-i18n="gec.f4.t">交易交付</h4><p data-i18n="gec.f4.d">通过绿证交易平台撮合交易，或双边直供交付。</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== 碳信用 ===== -->
+<section class="section section--tint" id="carbon">
+  <div class="container">
+    <div class="split split--reverse">
+      <div class="media"><img src="assets/mangrove-3.jpg" alt="碳信用开发与交易"></div>
+      <div>
+        <span class="eyebrow" data-i18n="carbon.eyebrow">碳信用</span>
+        <h2 class="h2" data-i18n="carbon.title">全品类碳资产开发与交易</h2>
+        <p class="lead" data-i18n="carbon.lead">覆盖国际国内多类型碳资产，提供"开发 + 交易"一体化服务：既有联合国清洁发展机制（CDM）、核证碳标准（VCS）等国际机制，也有国内CCER（国家核证自愿减排量）与天府碳惠（CDCER）等区域资产，为工业企业与新能源项目把"减排量"转化为可交易的碳资产。</p>
+        <div class="tags" style="margin-top:24px">
+          <span class="tag" data-i18n="carbon.tag1">甲烷利用</span>
+          <span class="tag" data-i18n="carbon.tag2">可再生能源</span>
+          <span class="tag" data-i18n="carbon.tag3">CDM · VCS · CCER · CDCER</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="carbon.flow.eyebrow">开发流程</span>
+      <h2 class="h2" data-i18n="carbon.flow.title">标准化的碳资产全生命周期</h2>
+      <p class="lead" data-i18n="carbon.flow.lead">从项目中沉淀出"资产诊断—合规优化—交易落地—增值管理"的标准化路径，让客户只出资产，坐等变现。</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><div class="num">1</div><h4 data-i18n="carbon.f1.t">项目识别</h4><p data-i18n="carbon.f1.d">评估减碳/固碳项目的效益与价值，识别可开发的减排量。</p></div>
+      <div class="flow-step"><div class="num">2</div><h4 data-i18n="carbon.f2.t">项目开发</h4><p data-i18n="carbon.f2.d">按对应机制方法学完成项目设计、开发与申报。</p></div>
+      <div class="flow-step"><div class="num">3</div><h4 data-i18n="carbon.f3.t">审定签发</h4><p data-i18n="carbon.f3.d">对接审定机构与注册机构，完成核证与减排量签发。</p></div>
+      <div class="flow-step"><div class="num">4</div><h4 data-i18n="carbon.f4.t">交易变现</h4><p data-i18n="carbon.f4.d">匹配国际采购需求或国内履约市场，完成交易与碳资产管理。</p></div>
+    </div>
+    <div class="split" style="margin-top:72px;align-items:flex-start">
+      <div>
+        <h2 class="h2" style="font-size:1.5rem" data-i18n="carbon.edge.title">为什么选择绿犇</h2>
+        <div class="feat-list" style="grid-template-columns:1fr">
+          <div class="feat">
+            <div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2v20"/></svg></div>
+            <div><b data-i18n="carbon.e1.t">自持资产背书</b><span data-i18n="carbon.e1.d">自持的CDM资产与CDCER（天府碳惠）资产已在四川联合环境交易所挂牌交易，更懂从开发到交易的全链路痛点。</span></div>
+          </div>
+          <div class="feat">
+            <div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 12h8v7M20 12V5M12 5h8"/></svg></div>
+            <div><b data-i18n="carbon.e2.t">国际国内双轨通</b><span data-i18n="carbon.e2.d">精通国际碳标准，也深度掌握国内CCER、CDCER与绿证政策导向，匹配"国际市场溢价 + 国内市场稳定"的最优交易组合。</span></div>
+          </div>
+          <div class="feat">
+            <div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
+            <div><b data-i18n="carbon.e3.t">全流程闭环</b><span data-i18n="carbon.e3.d">覆盖绿证与碳资产全生命周期，缩短交易周期，避免流程卡壳，让客户"只出资产，坐等变现"。</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="media" style="min-height:100%"><img src="assets/mangrove-2.jpg" alt="红树林碳汇"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 咨询服务 ===== -->
+<section class="section" id="consult">
+  <div class="container">
+    <div class="split">
+      <div class="media"><img src="assets/consulting.jpg" alt="绿色低碳咨询服务"></div>
+      <div>
+        <span class="eyebrow" data-i18n="consult.eyebrow">咨询服务</span>
+        <h2 class="h2" style="font-size:clamp(1.35rem,2.7vw,1.95rem)" data-i18n="consult.title">以专业能力赋能企业可持续转型</h2>
+        <p class="lead" data-i18n="consult.lead">我们提供先进的绿色低碳咨询服务，帮助企业与领先绿色低碳企业构建可持续发展与应对气候变化的能力，从盘查核算到落地执行，覆盖企业低碳转型的关键环节。</p>
+        <div class="feat-list" style="grid-template-columns:1fr 1fr">
+          <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4zM4 12h16M9 5v14"/></svg></div><div><b data-i18n="consult.i1">碳盘查</b><span data-i18n="consult.i1d">组织层面温室气体排放核算与报告</span></div></div>
+          <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><div><b data-i18n="consult.i2">碳中和</b><span data-i18n="consult.i2d">企业 / 产品 / 活动碳中和路径与执行</span></div></div>
+          <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div><div><b data-i18n="consult.i3">双碳规划</b><span data-i18n="consult.i3d">企业碳达峰碳中和战略与路线图</span></div></div>
+          <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-9M3 17v4M20 7h-4"/></svg></div><div><b data-i18n="consult.i4">ESG 报告</b><span data-i18n="consult.i4d">环境、社会与治理信息披露支持</span></div></div>
+          <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg></div><div><b data-i18n="consult.i5">合规咨询</b><span data-i18n="consult.i5d">碳市场、绿证与碳资产合规管理</span></div></div>
+          <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11a4 4 0 10-6-5 4 4 0 106 5zM5 21c0-4 3-6 7-6s7 2 7 6"/></svg></div><div><b data-i18n="consult.i6">能力建设</b><span data-i18n="consult.i6d">双碳培训与绿色低碳人才赋能</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== 业绩案例 ===== -->
+<section class="section" id="cases">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="cases.eyebrow">业绩案例</span>
+      <h2 class="h2" data-i18n="cases.title">用真实业绩说话</h2>
+      <p class="lead" data-i18n="cases.lead">以下客户覆盖各行业龙头企业、上市公司与央企国企，见证我们的绿色资产服务能力。</p>
+    </div>
+    <div class="case-wall">
+      <a class="cw-card" href="https://www.jxtc.com.cn/#/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/jiangxi_tungsten.jpg" alt="江西钨业控股集团有限公司"></div>
+        <span class="cw-name" data-i18n="cw7">江西钨业控股集团</span>
+      </a>
+      <a class="cw-card" href="http://www.mccefi.com.cn/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/xian_furnace.jpg" alt="西安电炉研究所有限公司"></div>
+        <span class="cw-name" data-i18n="cw2">西安电炉研究所</span>
+      </a>
+      <a class="cw-card" href="http://dqsh.cnpc.com.cn/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/daqing_petrochem.jpg" alt="中国石油大庆石化公司"></div>
+        <span class="cw-name" data-i18n="cw3">大庆石化</span>
+      </a>
+      <a class="cw-card" href="http://www.xbgc.com/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/xibei.jpg" alt="河南省西保冶材集团有限公司"></div>
+        <span class="cw-name" data-i18n="cw4">西保集团</span>
+      </a>
+      <a class="cw-card" href="http://www.hfrdjt.com/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/hefei_thermal.jpg" alt="合肥热电集团有限公司"></div>
+        <span class="cw-name" data-i18n="cw5">合肥热电</span>
+      </a>
+      <a class="cw-card" href="https://www.cdairport.com/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/chengdu_airport.jpg" alt="成都双流国际机场股份有限公司"></div>
+        <span class="cw-name" data-i18n="cw6">成都双流国际机场</span>
+      </a>
+      <a class="cw-card" href="https://www.gcl-et.com/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/gcl_et.jpg" alt="协鑫能源科技股份有限公司"></div>
+        <span class="cw-name" data-i18n="cw1">协鑫能源科技</span>
+      </a>
+      <a class="cw-card" href="https://www.sinochemlt.com/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/sinochemlt.jpg" alt="中化蓝天集团有限公司"></div>
+        <span class="cw-name" data-i18n="cw8">中化蓝天</span>
+      </a>
+      <a class="cw-card" href="https://www.geshiqitc.com/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/geshiqi.jpg" alt="江西格仕祺陶瓷有限公司"></div>
+        <span class="cw-name" data-i18n="cw9">格仕祺陶瓷</span>
+      </a>
+      <a class="cw-card" href="https://www.cdxrec.com/" target="_blank" rel="noopener">
+        <div class="cw-logo"><img src="assets/cases/xingrong.jpg" alt="成都市兴蓉环境股份有限公司"></div>
+        <span class="cw-name" data-i18n="cw10">成都市兴蓉环境</span>
+      </a>
+      <div class="cw-card cw-ghost">
+        <span class="cw-name" data-i18n="cases.more">更多合作客户持续加入</span>
+      </div>
+      <div class="cw-card cw-ghost">
+        <span class="cw-name" data-i18n="cases.more">更多合作客户持续加入</span>
+      </div>
+    </div>
+    <p class="cw-note" data-i18n="cases.note">以上排名不分先后</p>
+  </div>
+</section>
+<!-- ===== 关于我们 ===== -->
+<section class="section section--tint" id="about">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="about.eyebrow">关于我们</span>
+      <h2 class="h2" data-i18n="about.title">带着成熟经验而来的专业服务商</h2>
+    </div>
+    <div class="split">
+      <div class="media"><img src="assets/about.jpg" alt="四川绿犇低碳科技"></div>
+      <div>
+        <p class="lead" style="margin-bottom:16px" data-i18n="about.p1">四川绿犇低碳科技有限公司成立于2025年，总部位于四川成都，是一家聚焦绿证与碳资产（含国际国内多类型）价值变现的专业服务商，依托成熟的国际国内绿证、碳资产开发交易经验，为绿色环境属性项目提供绿证交易、全品类碳资产开发及绿色低碳咨询的全链条解决方案。</p>
+      </div>
+    </div>
+    <div class="section-head" style="margin-top:56px;margin-bottom:24px">
+      <h2 class="h2" style="font-size:1.5rem" data-i18n="about.vision.title">我们的愿景</h2>
+    </div>
+    <p class="lead" data-i18n="about.vision.d">我们相信，绿色环境的价值不止于新能源发电，更在于背后更多的绿色低碳行动。绿犇低碳致力于把绿色低碳行为与全球碳资产市场相结合，用专业服务让更多企业的减排努力转化为实实在在的价值，助力"双碳"目标下的绿色低碳经济循环。</p>
+  </div>
+</section>
+
+<!-- ===== 联系我们 ===== -->
+<section class="section section--deep" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="contact.eyebrow">联系我们</span>
+      <h2 class="h2" data-i18n="contact.title">让我们聊聊你的绿色资产</h2>
+      <p class="lead" data-i18n="contact.lead">无论您是需要采购绿证、碳资产的企业，欢迎与我们直接沟通。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="ci"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6l2 5-2.5 1.5a12 12 0 005 5L16 13l5 2v6h-2C10 21 3 14 4 4z"/></svg></div>
+        <h4 data-i18n="contact.phone">联系电话</h4>
+        <p><a href="tel:+8613096300013">(86)13096300013</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="ci"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <h4 data-i18n="contact.email">电子邮箱</h4>
+        <p><a href="mailto:biz@greenben.cn">biz@greenben.cn</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="ci"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0114 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+        <h4 data-i18n="contact.addr">公司地址</h4>
+        <p data-i18n="contact.addrd">中国（四川）自由贸易试验区成都高新区天府大道北段1700号1栋2单元16层1607号</p>
+      </div>
+      <div class="contact-card contact-qr">
+        <div class="ci"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5a4 4 0 014 4v2a4 4 0 01-4 4H6v2H4v-6h4a2 2 0 000-4H4V5h4zM16 5a4 4 0 014 4v2a4 4 0 01-4 4h-2v4h-2v-8h4a2 2 0 000-4h-4V5h4z"/></svg></div>
+        <h4 data-i18n="contact.qr">扫码添加微信</h4>
+        <img src="assets/wechat.png" alt="微信二维码">
+        <p data-i18n="contact.qrd">扫码咨询，获取服务方案</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-transparent.png" alt="四川绿犇低碳科技有限公司">
+        <div>
+          <b data-i18n="footer.company">四川绿犇低碳科技有限公司</b>
+          <p data-i18n="footer.d">聚焦绿证与碳资产价值变现的专业服务商。让每一份绿色资产，都发挥它的价值。</p>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h5 data-i18n="footer.nav">导航</h5>
+          <a href="#home" data-nav data-i18n="nav.home">首页</a>
+          <a href="#gec" data-nav data-i18n="nav.gec">绿色电力证书</a>
+          <a href="#carbon" data-nav data-i18n="nav.carbon">碳信用</a>
+          <a href="#consult" data-nav data-i18n="nav.consult">咨询服务</a>
+          <a href="#cases" data-nav data-i18n="nav.cases">业绩案例</a>
+          <a href="#about" data-nav data-i18n="nav.about">关于我们</a>
+        </div>
+        <div>
+          <h5 data-i18n="footer.contact">联系方式</h5>
+          <a href="tel:+8613096300013">(86)13096300013</a>
+          <a href="mailto:biz@greenben.cn">biz@greenben.cn</a>
+          <a href="#contact" data-nav data-i18n="footer.view">查看联系方式</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2026 四川绿犇低碳科技有限公司 · Sichuan Greenben Low-Carbon Technology Co., Ltd</span>
+      <span class="beian">
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">蜀ICP备2026000871号</a>
+        <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">川公网安备51019002008888号</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== 中英文案词典 ===== */
+var I18N = {
+  zh: {
+    "nav.home":"首页","nav.gec":"绿色电力证书","nav.carbon":"碳信用","nav.cases":"业绩案例","nav.consult":"咨询服务","nav.about":"关于我们","nav.contact":"联系我们","nav.cta":"联系我们",
+    "hero.tag":"绿色资产 · 全价值链服务商","hero.title":"让每一份绿色资产","hero.title2":"都发挥它的价值",
+    "hero.sub":"绿犇低碳聚焦绿色电力证书（GEC / I-REC）与碳资产（CDM、VCS、CCER、CDCER）的开发与交易，以及绿色低碳咨询，为绿色环境属性项目提供全链条解决方案，助力企业与“双碳”目标下的绿色价值变现。",
+    "hero.cta1":"联系我们","hero.cta2":"了解我们的服务",
+    "stat1":"累计交付绿色电力证书（张）","stat2":"投产运行的电站项目（个）","stat3":"服务央国企 / 上市公司客户","stat4":"累计形成服务案例（个）",
+    "svc.eyebrow":"核心业务","svc.title":"围绕绿色资产价值变现的三条主线",
+    "svc.lead":"我们以“服务客户 + 自主运营”双实践模式，覆盖从资产开发、交易撮合到价值管理的全生命周期。",
+    "svc.c1.t":"绿色电力证书开发与交易","svc.c1.d":"覆盖中国绿证（GEC）与国际绿证（I-REC），既可为用电企业代客户采购，也可帮助电站业主完成开发与管理，全程可追溯、权属清晰。",
+    "svc.c2.t":"碳信用开发与交易","svc.c2.d":"覆盖联合国CDM、核证碳标准（VCS）、国内CCER与天府碳惠（CDCER）等全品类机制，提供“项目识别—开发—审定—签发—交易”一体化服务。",
+    "svc.c3.t":"绿色低碳咨询服务","svc.c3.d":"提供碳盘查、企业/产品/活动碳中和、双碳规划、ESG报告与合规咨询，服务国内领先绿色低碳企业、上市公司与央国企子公司。",
+    "svc.more":"了解更多",
+    "gec.eyebrow":"绿色电力证书","gec.title":"中国绿证（GEC）与国际绿证（I-REC）的开发和交易",
+    "gec.lead":"我们面向光伏、风电等可再生能源项目，提供中国绿色电力证书（GEC）与国际可再生能源证书（I-REC）的全流程服务——从项目合规梳理、发电数据核验、申报对接，到匹配国内外采购方完成交易，帮助项目方快速兑现绿证的环境价值与经济价值。",
+    "gec.tag1":"代客户采购 · 满足绿电消纳","gec.tag2":"帮助开发管理 · 服务电站业主","gec.tag3":"绿证交易平台会员 · 直供交易",
+    "gec.flow.eyebrow":"服务流程","gec.flow.title":"从项目到交易，全流程闭环",
+    "gec.f1.t":"项目建档立卡","gec.f1.d":"完成可再生能源项目建档与数据接入，权属清晰、来源正规。",
+    "gec.f2.t":"发电数据核验","gec.f2.d":"核验发电量数据与结算单，确保绿证可追溯、可核验。",
+    "gec.f3.t":"绿证核发","gec.f3.d":"通过国家绿证核发交易系统完成绿证核发与登记。",
+    "gec.f4.t":"交易交付","gec.f4.d":"通过绿证交易平台撮合交易，或双边直供交付。",
+    "cases.eyebrow":"业绩案例","cases.title":"用真实业绩说话","cases.lead":"以下客户覆盖各行业龙头企业、上市公司与央企国企，见证我们的绿色资产服务能力。","cases.more":"更多合作客户持续加入","cases.note":"以上排名不分先后","cw1":"协鑫能源科技","cw2":"西安电炉研究所","cw3":"大庆石化","cw4":"西保集团","cw5":"合肥热电","cw6":"成都双流国际机场","cw7":"江西钨业控股集团","cw8":"中化蓝天","cw9":"格仕祺陶瓷","cw10":"成都市兴蓉环境",
+    "cases.h1":"序号","cases.h2":"客户","cases.h3":"绿证数量","cases.h4":"客户画像",
+    "c1n":"南昌同兴达精密光电有限公司","c2n":"西安电炉研究所有限公司","c3n":"大庆油田飞马有限公司","c4n":"河南省西保冶材集团有限公司","c5n":"合肥热电集团有限公司","c6n":"成都双流国际机场股份有限公司","c7n":"赣州华茂钨材料有限公司","c8n":"中昊晨光化工研究院有限公司","c9n":"江西格仕祺陶瓷有限公司","c10n":"无锡苏青共建零碳创新科技发展有限公司",
+    "c1d":"上市公司全资子公司（A股 002845），国内重要的摄像头模组制造企业","c2d":"国有控股高新技术企业，国家级专精特新“小巨人”","c3d":"国有控股企业，依托大庆油田资源，覆盖精细化工、油气工程等","c4d":"民营高新技术企业，国内冶金保护材料领域龙头","c5d":"合肥市属国有独资综合能源龙头企业","c6d":"国有控股混合所有制企业，四川省机场集团旗下混改平台","c7d":"国有全资企业，江西钨业控股集团钨产业链核心粉末材料平台","c8d":"中央在川全资央企，国内氟硅新材料标杆企业","c9d":"国家级绿色工厂、省级数智工厂的民营建陶企业","c10d":"青海省发展投资有限公司三级子公司，专注零碳园区与数字化能耗平台",
+    "carbon.eyebrow":"碳信用","carbon.title":"全品类碳资产开发与交易",
+    "carbon.lead":"覆盖国际国内多类型碳资产，提供“开发 + 交易”一体化服务：既有联合国清洁发展机制（CDM）、核证碳标准（VCS）等国际机制，也有国内CCER（国家核证自愿减排量）与天府碳惠（CDCER）等区域资产，为工业企业与新能源项目把“减排量”转化为可交易的碳资产。",
+    "carbon.tag1":"甲烷利用","carbon.tag2":"可再生能源","carbon.tag3":"CDM · VCS · CCER · CDCER",
+    "carbon.flow.eyebrow":"开发流程","carbon.flow.title":"标准化的碳资产全生命周期","carbon.flow.lead":"从项目中沉淀出“资产诊断—合规优化—交易落地—增值管理”的标准化路径，让客户只出资产，坐等变现。",
+    "carbon.f1.t":"项目识别","carbon.f1.d":"评估减碳/固碳项目的效益与价值，识别可开发的减排量。",
+    "carbon.f2.t":"项目开发","carbon.f2.d":"按对应机制方法学完成项目设计、开发与申报。",
+    "carbon.f3.t":"审定签发","carbon.f3.d":"对接审定机构与注册机构，完成核证与减排量签发。",
+    "carbon.f4.t":"交易变现","carbon.f4.d":"匹配国际采购需求或国内履约市场，完成交易与碳资产管理。",
+    "carbon.edge.title":"为什么选择绿犇",
+    "carbon.e1.t":"自持资产背书","carbon.e1.d":"自持的CDM资产与CDCER（天府碳惠）资产已在四川联合环境交易所挂牌交易，更懂从开发到交易的全链路痛点。",
+    "carbon.e2.t":"国际国内双轨通","carbon.e2.d":"精通国际碳标准，也深度掌握国内CCER、CDCER与绿证政策导向，匹配“国际市场溢价 + 国内市场稳定”的最优交易组合。",
+    "carbon.e3.t":"全流程闭环","carbon.e3.d":"覆盖绿证与碳资产全生命周期，缩短交易周期，避免流程卡壳，让客户“只出资产，坐等变现”。",
+    "consult.eyebrow":"咨询服务","consult.title":"以专业能力赋能企业可持续转型","consult.lead":"我们提供先进的绿色低碳咨询服务，帮助企业与领先绿色低碳企业构建可持续发展与应对气候变化的能力，从盘查核算到落地执行，覆盖企业低碳转型的关键环节。",
+    "consult.i1":"碳盘查","consult.i1d":"组织层面温室气体排放核算与报告",
+    "consult.i2":"碳中和","consult.i2d":"企业 / 产品 / 活动碳中和路径与执行",
+    "consult.i3":"双碳规划","consult.i3d":"企业碳达峰碳中和战略与路线图",
+    "consult.i4":"ESG 报告","consult.i4d":"环境、社会与治理信息披露支持",
+    "consult.i5":"合规咨询","consult.i5d":"碳市场、绿证与碳资产合规管理",
+    "consult.i6":"能力建设","consult.i6d":"双碳培训与绿色低碳人才赋能",
+    "about.eyebrow":"关于我们","about.title":"带着成熟经验而来的专业服务商",
+    "about.p1":"四川绿犇低碳科技有限公司成立于2025年，总部位于四川成都，是一家聚焦绿证与碳资产（含国际国内多类型）价值变现的专业服务商，依托成熟的国际国内绿证、碳资产开发交易经验，为绿色环境属性项目提供绿证交易、全品类碳资产开发及绿色低碳咨询的全链条解决方案。",
+    "about.vision.title":"我们的愿景","about.vision.d":"我们相信，绿色环境的价值不止于新能源发电，更在于背后更多的绿色低碳行动。绿犇低碳致力于把绿色低碳行为与全球碳资产市场相结合，用专业服务让更多企业的减排努力转化为实实在在的价值，助力“双碳”目标下的绿色低碳经济循环。",
+    "contact.eyebrow":"联系我们","contact.title":"让我们聊聊你的绿色资产","contact.lead":"无论您是需要采购绿证、碳资产的企业，欢迎与我们直接沟通。",
+    "contact.phone":"联系电话","contact.email":"电子邮箱","contact.addr":"公司地址","contact.addrd":"中国（四川）自由贸易试验区成都高新区天府大道北段1700号1栋2单元16层1607号","contact.qr":"扫码添加微信","contact.qrd":"扫码咨询，获取服务方案",
+    "footer.company":"四川绿犇低碳科技有限公司","footer.d":"聚焦绿证与碳资产价值变现的专业服务商。让每一份绿色资产，都发挥它的价值。","footer.nav":"导航","footer.contact":"联系方式","footer.view":"查看联系方式"
+  },
+  en: {
+    "nav.home":"Home","nav.gec":"Green Certificates","nav.carbon":"Carbon Credits","nav.cases":"Case Studies","nav.consult":"Consulting","nav.about":"About Us","nav.contact":"Contact","nav.cta":"Contact Us",
+    "hero.tag":"GREEN ASSETS · FULL-VALUE-CHAIN SERVICES","hero.title":"Turn every green asset","hero.title2":"into real value",
+    "hero.sub":"GreenBen focuses on the development and trading of Green Power Certificates (GEC / I-REC) and carbon assets (CDM, VCS, CCER, CDCER), plus green low-carbon consulting — a full-chain solution that monetizes green value under the national dual-carbon goal.",
+    "hero.cta1":"Contact us","hero.cta2":"Explore our services",
+    "stat1":"Green certificates delivered","stat2":"Operating power projects","stat3":"SOE / listed-company clients","stat4":"Service cases completed",
+    "svc.eyebrow":"Core Services","svc.title":"Three pillars of green-asset monetization",
+    "svc.lead":"Through a dual practice of serving clients and self-operation, we cover the full lifecycle from asset development and trading to value management.",
+    "svc.c1.t":"Green Power Certificate Development & Trading","svc.c1.d":"Covering domestic GEC and international I-REC, we procure on behalf of power consumers or help plant owners develop and manage certificates — fully traceable with clear ownership.",
+    "svc.c2.t":"Carbon Credit Development & Trading","svc.c2.d":"Across UN CDM, Verified Carbon Standard (VCS), domestic CCER and Tianfu Carbon Benefits (CDCER), we provide integrated project identification—development—verification—issuance—trading services.",
+    "svc.c3.t":"Green Low-Carbon Consulting","svc.c3.d":"Carbon inventory, corporate/product/event carbon neutrality, dual-carbon planning, ESG reporting and compliance consulting for leading green enterprises, listed companies and SOE subsidiaries.",
+    "svc.more":"Learn more",
+    "gec.eyebrow":"Green Power Certificates","gec.title":"Development & trading of GEC and I-REC",
+    "gec.lead":"For renewable projects such as solar and wind, we provide full-process services for China Green Power Certificates (GEC) and International Renewable Energy Certificates (I-REC) — from compliance review and generation-data verification to application and matching with domestic and international buyers, helping owners quickly realize the environmental and economic value of certificates.",
+    "gec.tag1":"Procurement for clients · green power consumption","gec.tag2":"Development & management for plant owners","gec.tag3":"Exchange member · direct supply trading",
+    "gec.flow.eyebrow":"Our Process","gec.flow.title":"From project to trading, an end-to-end loop",
+    "gec.f1.t":"Project registration","gec.f1.d":"Register renewable projects and connect generation data, with clear ownership and verified origin.",
+    "gec.f2.t":"Generation data verification","gec.f2.d":"Verify generation data and settlement records to ensure traceability and auditability.",
+    "gec.f3.t":"Certificate issuance","gec.f3.d":"Issue and register certificates through the national green certificate trading system.",
+    "gec.f4.t":"Trading & delivery","gec.f4.d":"Trade on green certificate platforms or deliver through bilateral direct supply.",
+    "cases.eyebrow":"Case Studies","cases.title":"Results that speak for themselves","cases.lead":"Our clients below span industry leaders, listed companies and SOEs — evidence of our green-asset service capability.","cases.more":"More partners joining","cases.note":"Listed in no particular order","cw1":"GCL Energy Technology","cw2":"Xian Electric Furnace Institute","cw3":"Daqing Petrochemical","cw4":"Xibei Group","cw5":"Hefei Thermal Power","cw6":"Chengdu Shuangliu Int'l Airport","cw7":"Jiangxi Tungsten Holding Group","cw8":"Sinochem Lantian","cw9":"Geshiqi Ceramics","cw10":"Chengdu Xingrong Environment",
+    "cases.h1":"No.","cases.h2":"Client","cases.h3":"Green certificates","cases.h4":"Client profile",
+    "c1n":"南昌同兴达精密光电有限公司","c2n":"西安电炉研究所有限公司","c3n":"大庆油田飞马有限公司","c4n":"河南省西保冶材集团有限公司","c5n":"合肥热电集团有限公司","c6n":"成都双流国际机场股份有限公司","c7n":"赣州华茂钨材料有限公司","c8n":"中昊晨光化工研究院有限公司","c9n":"江西格仕祺陶瓷有限公司","c10n":"无锡苏青共建零碳创新科技发展有限公司",
+    "c1d":"Wholly-owned subsidiary of a listed company (A-share 002845), a leading camera-module manufacturer","c2d":"State-owned high-tech enterprise, national-level \"specialized & new\" (little giant) champion","c3d":"State-owned enterprise leveraging Daqing Oilfield resources, covering fine chemicals and oilfield engineering","c4d":"Private high-tech enterprise and a leading domestic metallurgical protective materials company","c5d":"Municipal wholly state-owned comprehensive energy leader of Hefei","c6d":"State-owned mixed-ownership enterprise under Sichuan Airport Group","c7d":"Wholly state-owned core powder-materials platform of Jiangxi Tungsten Holding Group","c8d":"Central SOE in Sichuan, a benchmark fluorosilicone new-materials enterprise","c9d":"Private building-ceramics enterprise, a national green factory and provincial digital factory","c10d":"Third-tier subsidiary of Qinghai Provincial Development Investment Co., focused on zero-carbon parks and digital energy platforms",
+    "carbon.eyebrow":"Carbon Credits","carbon.title":"Full-spectrum carbon asset development & trading",
+    "carbon.lead":"We provide integrated development-plus-trading services across international and domestic carbon assets: from UN CDM and Verified Carbon Standard (VCS) to domestic CCER (China Certified Emission Reduction) and Tianfu Carbon Benefits (CDCER), turning emission reductions into tradable carbon assets for industrial enterprises and renewable projects.",
+    "carbon.tag1":"Methane utilization","carbon.tag2":"Renewable energy","carbon.tag3":"CDM · VCS · CCER · CDCER",
+    "carbon.flow.eyebrow":"Development Process","carbon.flow.title":"A standardized full lifecycle of carbon assets","carbon.flow.lead":"We have distilled a standardized path of asset diagnosis, compliance optimization, trading execution and value-add management — clients bring the asset, and we deliver the monetization.",
+    "carbon.f1.t":"Project identification","carbon.f1.d":"Assess the benefits and value of emission-reduction or carbon-sink projects to identify developable reductions.",
+    "carbon.f2.t":"Project development","carbon.f2.d":"Complete project design, development and application under the relevant methodology.",
+    "carbon.f3.t":"Verification & issuance","carbon.f3.d":"Coordinate with verification and registration bodies to certify and issue emission reductions.",
+    "carbon.f4.t":"Trading & monetization","carbon.f4.d":"Match international buyers or domestic compliance markets to complete trading and asset management.",
+    "carbon.edge.title":"Why choose GreenBen",
+    "carbon.e1.t":"Self-held asset credibility","carbon.e1.d":"Our own CDM and CDCER (Tianfu Carbon Benefits) assets are listed on the Sichuan United Environment Exchange, giving us first-hand insight into the full-chain pain points.",
+    "carbon.e2.t":"Dual-track: international & domestic","carbon.e2.d":"We master both international carbon standards and domestic CCER, CDCER and certificate policies to deliver the optimal combination of international premium and domestic stability.",
+    "carbon.e3.t":"End-to-end loop","carbon.e3.d":"We cover the full lifecycle of certificates and carbon assets, shortening cycles and avoiding bottlenecks — clients contribute assets, we handle the rest.",
+    "consult.eyebrow":"Consulting","consult.title":"Empowering sustainable transformation through expertise","consult.lead":"We provide advanced green low-carbon consulting services that help enterprises and leading green low-carbon enterprises build capacity for sustainability and climate response — from inventory and accounting to on-the-ground execution.",
+    "consult.i1":"Carbon Inventory","consult.i1d":"Organizational greenhouse-gas accounting and reporting",
+    "consult.i2":"Carbon Neutrality","consult.i2d":"Corporate / product / event carbon neutrality paths and execution",
+    "consult.i3":"Dual-Carbon Planning","consult.i3d":"Carbon peak and neutrality strategy and roadmap",
+    "consult.i4":"ESG Reporting","consult.i4d":"Environmental, social and governance disclosure support",
+    "consult.i5":"Compliance Consulting","consult.i5d":"Carbon market, certificate and carbon-asset compliance management",
+    "consult.i6":"Capacity Building","consult.i6d":"Dual-carbon training and green low-carbon talent enablement",
+    "about.eyebrow":"About Us","about.title":"A professional service provider with mature experience",
+    "about.p1":"Founded in 2025 and headquartered in Chengdu, Sichuan, Sichuan GreenBen Low-Carbon Technology Co., Ltd. is a professional service provider focused on monetizing green certificates and carbon assets (international and domestic). Drawing on mature experience in certificate and carbon-asset development and trading, we deliver full-chain solutions for green-asset projects.",
+    "about.vision.title":"Our Vision","about.vision.d":"We believe green value extends beyond renewable generation to every green, low-carbon action. GreenBen connects low-carbon behavior with the global carbon-asset market, turning enterprises' emission-reduction efforts into tangible value and supporting the green economic cycle under the dual-carbon goal.",
+    "contact.eyebrow":"Contact Us","contact.title":"Let's talk about your green assets","contact.lead":"Whether you are an enterprise looking to procure green certificates or carbon assets, we welcome direct conversations.",
+    "contact.phone":"Phone","contact.email":"Email","contact.addr":"Address","contact.addrd":"Room 1607, Unit 2, Building 1, No. 1700 Tianfu Avenue North, Chengdu High-tech Zone, China (Sichuan) Pilot Free Trade Zone","contact.qr":"Scan to add us on WeChat","contact.qrd":"Scan to consult & get a tailored service plan",
+    "footer.company":"Sichuan Greenben Low-Carbon Technology Co., Ltd","footer.d":"A professional service provider focused on monetizing green certificates and carbon assets. Turn every green asset into real value.","footer.nav":"Navigation","footer.contact":"Contact","footer.view":"View contact details"
+  }
+};
+
+/* ===== 语言切换 ===== */
+var currentLang = "zh";
+function applyLang(l){
+  currentLang = l;
+  var dict = I18N[l];
+  document.documentElement.lang = (l==="zh") ? "zh-CN" : "en";
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k = el.getAttribute("data-i18n");
+    if(dict[k] !== undefined){ el.textContent = dict[k]; }
+  });
+  document.getElementById("langZh").classList.toggle("on", l==="zh");
+  document.getElementById("langEn").classList.toggle("on", l==="en");
+}
+document.getElementById("langZh").addEventListener("click", function(){ applyLang("zh"); });
+document.getElementById("langEn").addEventListener("click", function(){ applyLang("en"); });
+
+/* ===== 移动端导航 ===== */
+var burger = document.getElementById("burger");
+var navLinks = document.getElementById("navLinks");
+burger.addEventListener("click", function(){ navLinks.classList.toggle("open"); });
+navLinks.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ navLinks.classList.remove("open"); }); });
+
+/* ===== 导航高亮（滚动监听） ===== */
+var sections = ["home","gec","carbon","consult","cases","about","contact"].map(function(id){ return document.getElementById(id); });
+var navAnchors = document.querySelectorAll(".nav-links a[data-nav]");
+function onScroll(){
+  var pos = window.scrollY + 130;
+  var current = "home";
+  sections.forEach(function(sec){
+    if(sec && sec.offsetTop <= pos){ current = sec.id; }
+  });
+  navAnchors.forEach(function(a){
+    var href = a.getAttribute("href");
+    if(href === "#"+current){ a.classList.add("active"); } else { a.classList.remove("active"); }
+  });
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+</script>
+</body>
+</html>
