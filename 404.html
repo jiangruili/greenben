@@ -41,7 +41,7 @@
   .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
   .brand img{width:44px;height:44px;object-fit:contain}
   .brand-name{display:flex;flex-direction:column;line-height:1.15}
-  .brand-cn{font-weight:800;font-size:1.2rem;color:#fff}
+  .brand-cn{font-weight:800;font-size:1.7rem;color:#fff;white-space:nowrap}
   .brand-en{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.78);letter-spacing:.06em}
   .lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px}
   .lang-toggle button{border:0;background:transparent;color:rgba(255,255,255,.85);font-family:var(--font-sans);font-size:.85rem;padding:4px 12px;border-radius:999px;cursor:pointer}
@@ -51,7 +51,6 @@
         text-shadow:0 24px 60px rgba(0,0,0,.35)}
   .title{margin-top:6px;font-family:var(--font-serif);font-weight:700;font-size:clamp(26px,4vw,40px);color:#fff}
   .msg{margin-top:14px;max-width:520px;color:rgba(255,255,255,.82);font-size:clamp(15px,2.2vw,18px)}
-  .hint{margin-top:8px;color:rgba(255,255,255,.6);font-size:.92rem}
   .btn{margin-top:34px;display:inline-flex;align-items:center;gap:8px;background:var(--green-600);color:#fff;font-family:var(--font-sans);font-weight:600;font-size:1.05rem;padding:14px 34px;border-radius:12px;text-decoration:none;
        box-shadow:0 16px 36px -18px rgba(0,0,0,.6);transition:transform .2s ease,background .2s ease}
   .btn:hover{background:var(--green-700);transform:translateY(-2px)}
@@ -79,8 +78,7 @@
   <main class="main">
     <div class="code" aria-hidden="true">404</div>
     <h1 class="title" data-i18n="title">页面未找到</h1>
-    <p class="msg" data-i18n="msg">您访问的页面不存在或已被移动，请返回首页继续了解我们的绿色电力证书、碳信用与绿色低碳咨询服务。</p>
-    <p class="hint" data-i18n="hint">绿犇低碳 · 绿色资产与低碳服务</p>
+    <p class="msg" data-i18n="msg">您访问的页面不存在或已被移动</p>
     <a class="btn" href="index.html"><span data-i18n="back">返回首页</span><span class="arr">→</span></a>
   </main>
 
@@ -90,13 +88,13 @@
   var dict = {
     "zh":{
       "brand.cn":"绿犇低碳","brand.en":"Greenben Low-Carbon",
-      "title":"页面未找到","msg":"您访问的页面不存在或已被移动，请返回首页继续了解我们的绿色电力证书、碳信用与绿色低碳咨询服务。",
-      "hint":"绿犇低碳 · 绿色资产与低碳服务","back":"返回首页","foot":"四川绿犇低碳科技有限公司 · www.greenben.cn"
+      "title":"页面未找到","msg":"您访问的页面不存在或已被移动",
+      "back":"返回首页","foot":"四川绿犇低碳科技有限公司 · www.greenben.cn"
     },
     "en":{
       "brand.cn":"Greenben Low-Carbon","brand.en":"Sichuan Greenben Low-Carbon Technology Co., Ltd.",
-      "title":"Page Not Found","msg":"The page you are looking for does not exist or has been moved. Please return to the homepage to learn about our Green Electricity Certificates (GEC), carbon credits and green low-carbon consulting services.",
-      "hint":"Greenben Low-Carbon · Green assets & low-carbon services","back":"Back to Home","foot":"Sichuan Greenben Low-Carbon Technology Co., Ltd. · www.greenben.cn"
+      "title":"Page Not Found","msg":"The page you are looking for does not exist or has been moved.",
+      "back":"Back to Home","foot":"Sichuan Greenben Low-Carbon Technology Co., Ltd. · www.greenben.cn"
     }
   };
   function apply(lang){
